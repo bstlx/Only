@@ -105,9 +105,9 @@ getData() {
     echo "  12)camellia-256-cfb"
     echo "  13)chacha20-ietf"
     echo "  14)none"
-    read -p " 请选择加密方式（默认none）" answer
+    read -p " 请选择加密方式（默认aes-128-cfb）" answer
     if [ -z "$answer" ]; then
-        METHOD="none"
+        METHOD="aes-128-cfb"
     else
         case $answer in
         1)
@@ -154,7 +154,7 @@ getData() {
             ;;            
         *)
             colorEcho $RED " 无效的选择，使用默认加密方式"
-            METHOD="none"
+            METHOD="aes-128-cfb"
         esac
     fi
     echo ""
