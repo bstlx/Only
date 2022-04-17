@@ -61,16 +61,15 @@ slogon() {
 
 getData() {
     read -p " 请设置SSR的密码（不输入则默认）:" PASSWORD
-    [ -z "$PASSWORD" ] && PASSWORD=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
+    [ -z "$PASSWORD" ] && PASSWORD="just5201314"
     echo ""
-    PASSWORD="just5201314"
     colorEcho $BLUE " 密码： $PASSWORD"
     echo ""
     
     while true
     do
-        read -p " 请设置SSR的端口号[1-65535]:" PORT
-        [ -z "$PORT" ] && PORT="12345"
+        read -p " 请设置SSR的端口号[1-65535]默认10086:" PORT
+        [ -z "$PORT" ] && PORT="10086"
         if [ "${PORT:0:1}" = "0" ]; then
             echo -e " ${RED}端口不能以0开头${PLAIN}"
             exit 1
