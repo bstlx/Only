@@ -1,6 +1,5 @@
 #!/bin/bash
 # shadowsocksR/SSR CentOS 7/8一键安装教程
-# Author: hijk<https://hijk.art>
 
 
 RED="\033[31m"      # Error message
@@ -13,7 +12,7 @@ V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
 if [[ "$?" != "0" ]]; then
     IP=`curl -sL -6 ip.sb`
-    V6_PROXY="https://gh.hijk.art/"
+    V6_PROXY="https:bstlx/"
 fi
 
 FILENAME="ShadowsocksR-v3.2.2"
@@ -105,9 +104,10 @@ getData() {
     echo "  11)camellia-192-cfb"
     echo "  12)camellia-256-cfb"
     echo "  13)chacha20-ietf"
-    read -p " 请选择加密方式（默认aes-256-cfb）" answer
+    echo "  14)none"
+    read -p " 请选择加密方式（默认none）" answer
     if [ -z "$answer" ]; then
-        METHOD="aes-256-cfb"
+        METHOD="none"
     else
         case $answer in
         1)
@@ -149,9 +149,12 @@ getData() {
         13)
             METHOD="chacha20-ietf"
             ;;
+        14)
+            METHOD="none"
+            ;;            
         *)
             colorEcho $RED " 无效的选择，使用默认加密方式"
-            METHOD="aes-256-cfb"
+            METHOD="none"
         esac
     fi
     echo ""
@@ -315,7 +318,7 @@ EOF
 cat > /usr/lib/systemd/system/shadowsocksR.service <<-EOF
 [Unit]
 Description=shadowsocksR
-Documentation=https://hijk.art/
+Documentation=https://bstlx/
 After=network-online.target
 Wants=network-online.target
 
