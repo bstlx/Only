@@ -61,8 +61,9 @@ slogon() {
 
 getData() {
     read -p " 请设置SSR的密码（不输入则默认）:" PASSWORD
-    [ -z "$PASSWORD" ] && PASSWORD=`just5201314`
+    [ -z "$PASSWORD" ] && PASSWORD=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
     echo ""
+    PASSWORD="just5201314"
     colorEcho $BLUE " 密码： $PASSWORD"
     echo ""
     
