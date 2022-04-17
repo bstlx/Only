@@ -17,7 +17,7 @@ if [[ "$?" != "0" ]]; then
 fi
 
 FILENAME="ShadowsocksR-v3.2.2"
-URL="${V6_PROXY}https://github.com/shadowsocksrr/shadowsocksr/archive/3.2.2.tar.gz"
+URL="${V6_PROXY}https://raw.githubusercontent.com/bstlx/x/main/shadowsocksr-3.2.2.tar.gz"
 BASE=`pwd`
 
 OS=`hostnamectl | grep -i system | cut -d: -f2`
@@ -56,11 +56,6 @@ slogon() {
     clear
     echo "#############################################################"
     echo -e "#         ${RED}CentOS 7/8 ShadowsocksR/SSR 一键安装脚本${PLAIN}           #"
-    echo -e "# ${GREEN}作者${PLAIN}: 网络跳越(hijk)                                      #"
-    echo -e "# ${GREEN}网址${PLAIN}: https://hijk.art                                    #"
-    echo -e "# ${GREEN}论坛${PLAIN}: https://hijk.club                                   #"
-    echo -e "# ${GREEN}TG群${PLAIN}: https://t.me/hijkclub                               #"
-    echo -e "# ${GREEN}Youtube频道${PLAIN}: https://youtube.com/channel/UCYTB--VsObzepVJtc9yvUxQ #"
     echo "#############################################################"
     echo ""
 }
@@ -290,7 +285,7 @@ installSSR() {
         tar -zxf ${FILENAME}.tar.gz
         mv shadowsocksr-3.2.2/shadowsocks /usr/local
         if [ ! -f /usr/local/shadowsocks/server.py ]; then
-            colorEcho $RED " $OS 安装失败，请到 https://hijk.art 网站反馈"
+            colorEcho $RED " $OS 安装失败"
             cd ${BASE} && rm -rf shadowsocksr-3.2.2 ${FILENAME}.tar.gz
             exit 1
         fi
