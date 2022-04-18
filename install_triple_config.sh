@@ -31,7 +31,7 @@ printf '
   "outbounds": [
     {
       "protocol": "freedom",
-      "settings": {"domainStrategy": "www.bstlxvps.ml"}
+      "settings": {"domainStrategy":"UseIP"}
     }
   ],
  "dns": {
