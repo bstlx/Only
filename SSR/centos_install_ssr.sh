@@ -16,7 +16,7 @@ if [[ "$?" != "0" ]]; then
 fi
 
 FILENAME="ShadowsocksR-v3.2.2"
-URL="${V6_PROXY}https://raw.githubusercontent.com/bstlx/x/main/SSR/shadowsocksr-3.2.2.tar.gz"
+URL="${V6_PROXY}https://raw.githubusercontent.com/bstlx/Only/Lucky/SSR/shadowsocksr-3.2.2.tar.gz"
 BASE=`pwd`
 
 OS=`hostnamectl | grep -i system | cut -d: -f2`
