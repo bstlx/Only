@@ -16,7 +16,7 @@ if [[ "$?" != "0" ]]; then
 fi
 
 FILENAME="ShadowsocksR-v3.2.2"
-URL="${V6_PROXY}https://raw.githubusercontent.com/bstlx/x/main/shadowsocksr-3.2.2.tar.gz"
+URL="${V6_PROXY}https://raw.githubusercontent.com/bstlx/x/main/SSR/shadowsocksr-3.2.2.tar.gz"
 BASE=`pwd`
 
 OS=`hostnamectl | grep -i system | cut -d: -f2`
@@ -105,9 +105,9 @@ getData() {
     echo "  12)camellia-256-cfb"
     echo "  13)chacha20-ietf"
     echo "  14)aes-256-gcm"
-    read -p " 请选择加密方式（默认aes-256-gcm）" answer
+    read -p " 请选择加密方式（默认aes-256-cfb）" answer
     if [ -z "$answer" ]; then
-        METHOD="aes-256-gcm"
+        METHOD="aes-256-cfb"
     else
         case $answer in
         1)
@@ -150,11 +150,11 @@ getData() {
             METHOD="chacha20-ietf"
             ;;
         14)
-            METHOD="aes-256-gcm"
+            METHOD="aes-256-cfb"
             ;;            
         *)
             colorEcho $RED " 无效的选择，使用默认加密方式"
-            METHOD="aes-256-gcm"
+            METHOD="aes-256-cfb"
         esac
     fi
     echo ""
